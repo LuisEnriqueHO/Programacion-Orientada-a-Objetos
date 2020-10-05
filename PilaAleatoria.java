@@ -22,13 +22,19 @@ public class PilaAleatoria {
 
         for (int i = 0; i < 26; i++) {
             if (tope < 26) {
-                int numAleatorio = (int) Math.floor(Math.random() * (num2 - num1) + num1);
+                int numAleatorio = (int) (Math.random() * (num2 - num1) + num1);
                 pilabc[tope] = (char) numAleatorio;
                 tope++;
-
             } else {
                 System.out.println("pila llena");
                 break;
+            }
+        } for( int z = 0; z<26; z++){
+            for( int z2=0;z2<26; z2++){
+                if(pilabc[z]==pilabc[z2] && z!= z2){
+                    int numAleatorio = (int) (Math.random() * (num2 - num1) + num1);
+                   pilabc[z2]= (char) numAleatorio;
+                }
             }
         }
 
@@ -58,6 +64,7 @@ public class PilaAleatoria {
         for (int i = 0; i < (26 - 1); i++) {
             for (int j = 0; j < (26 - 1); j++) {
                 if (pilabc[j] > pilabc[j + 1]) {
+
                     aux = pilabc[j];
                     pilabc[j] = pilabc[j + 1];
                     pilabc[j + 1] = aux;
@@ -67,7 +74,7 @@ public class PilaAleatoria {
         }
         System.out.println("Datos ordenados...");
         for (int i = 0; i < 26; i++) {
-            System.out.print(" "+pilabc[i]);
+            System.out.print(" " + pilabc[i]);
         }
     }
 
